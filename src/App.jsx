@@ -1,21 +1,24 @@
+import { lazy, Suspense } from "react";
+import Loader from "@/components/loader/loader";
 
-import Header from "@/components/header/header";
-import Information from "@/components/information/information";
-import Formation from "@/components/formation/formation";
-import Experiences from "@/components/experiences/experiences";
-import Skills from "@/components/competance/competance";
-import Contact from "@/components/contact/contact";
+const Header = lazy(() => import("@/components/header/header"));
+const Information = lazy(() => import("@/components/information/information"));
+const Formation = lazy(() => import("@/components/formation/formation"));
+const Experiences = lazy(() => import("@/components/experiences/experiences"));
+const Skills = lazy(() => import("@/components/competance/competance"));
+const Contact = lazy(() => import("@/components/contact/contact"));
+
 export default function App() {
   return (
-    <div>
-      <div className="bg-[#050505] text-white w-full min-h-screen overflow-x-hidden">
-      <Header />
-      <Information />
-      <Formation />
-      <Experiences />
-      <Skills />
-      <Contact />
+    <Suspense fallback={<Loader />}>
+      <div className="bg-[#050505] text-white w-full min-h-screen overflow-hidden">
+        <Header />
+        <Information />
+        <Formation />
+        <Experiences />
+        <Skills />
+        <Contact />
       </div>
-    </div>
+    </Suspense>
   );
 }
