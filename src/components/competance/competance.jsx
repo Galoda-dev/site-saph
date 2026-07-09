@@ -59,11 +59,12 @@ const skills = [
       "GitLab",
     ],
   },
-  {
-    title: "Méthodes",
+   {
+    title: "Gestion de projet",
     icon: Workflow,
     items: [
-      "Merise",
+      "Jira",
+      "Trello",
       "Agile SCRUM",
     ],
   },
