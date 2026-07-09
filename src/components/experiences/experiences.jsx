@@ -17,7 +17,7 @@ const experiences = [
     icon: Building2,
     projects: [
       {
-        title: "Projet 1 : Compte rendu d'activités",
+        title: " Compte rendu d'activités",
         skills: [
           "Java",
           "Spring Boot",
@@ -30,7 +30,7 @@ const experiences = [
         ],
       },
       {
-        title: "Projet 2 : Facturation électronique",
+        title: "Facturation électronique",
         skills: [
           "Java",
           "Spring Boot",
@@ -48,7 +48,7 @@ const experiences = [
     icon: Building2,
     projects: [
       {
-        title: "Projet 3 : Application de suivi de dossiers",
+        title: " Application de suivi de dossiers",
         skills: [
           "React JS",
           "Express JS",
@@ -65,7 +65,7 @@ const experiences = [
     icon: Building2,
     projects: [
       {
-        title: "Projet 4 : Application d'enregistrement des correspondances",
+        title: " Application d'enregistrement des correspondances",
         skills: [
           "Vue JS",
           "PHP",
@@ -82,7 +82,7 @@ const experiences = [
     icon: GraduationCap,
     projects: [
       {
-        title: "Projet 5 : Pipeline CI/CD",
+        title: " Pipeline CI/CD",
         skills: ["GitHub Actions", "Docker", "CI/CD"],
       },
       {
