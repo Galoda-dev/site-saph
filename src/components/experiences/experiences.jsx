@@ -256,7 +256,6 @@ const Experiences = () => {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
 
-        {/* TITRE */}
         <motion.div
           className="flex flex-col gap-2"
           initial={{
@@ -274,9 +273,7 @@ const Experiences = () => {
             duration: 0.7,
           }}
         >
-          <span className="text-sm font-medium uppercase tracking-widest text-green-500">
-            Portfolio
-          </span>
+         
 
           <h2 className="text-2xl font-bold text-white md:text-3xl">
             Mes Projets
