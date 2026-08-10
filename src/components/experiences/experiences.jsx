@@ -1,4 +1,4 @@
-import { Building2, GraduationCap } from "lucide-react";
+import { Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 import {
@@ -9,88 +9,82 @@ import {
 } from "@/components/ui/card";
 
 import { Badge } from "@/components/ui/badge";
-
-const experiences = [
+import facture from "@/assets/experiences/factureList.jpg";
+import activity from "@/assets/experiences/listeprojet.jpg";
+import miAina from "@/assets/experiences/ispf.jpg";
+const projects = [
   {
-    company: "RELIA Consulting",
-    duration: "6 mois",
-    icon: Building2,
-    projects: [
-      {
-        title: " Compte rendu d'activités",
-        skills: [
-          "Java",
-          "Spring Boot",
-          "Spring Security",
-          "Thymeleaf",
-          "PostgreSQL",
-          "UML",
-          "Git",
-          "Trello",
-        ],
-      },
-      {
-        title: "Facturation électronique",
-        skills: [
-          "Java",
-          "Spring Boot",
-          "Spring Security",
-          "Thymeleaf",
-          "PostgreSQL",
-          "Jira",
-        ],
-      },
+  title: "Site web ISPF Mi Aina",
+  description:
+    "Site web moderne de l'Institut de formation des Paramédicaux Mi Aina permettant de présenter l'établissement, ses formations, ses enseignants et ses actualités, avec une interface d'administration pour gérer les contenus du site.",
+  image:
+    miAina,
+  skills: [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "JWT",
+    "Administration",
+    "Git",
+  ],
+},
+  {
+    title: "Compte rendu d'activités",
+    description:
+      "Application web permettant de centraliser, gérer et suivre les comptes rendus d'activités de l'entreprise.",
+    image:
+      activity,
+    skills: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "Thymeleaf",
+      "PostgreSQL",
+      "UML",
+      "Git",
+      "Trello",
     ],
   },
   {
-    company: "Faculté de Médecine Fianarantsoa",
-    duration: "3 mois",
-    icon: Building2,
-    projects: [
-      {
-        title: " Application de suivi de dossiers",
-        skills: [
-          "React JS",
-          "Express JS",
-          "JavaScript",
-          "MySQL",
-          "VS Code",
-        ],
-      },
+    title: "Facturation électronique",
+    description:
+      "Application web permettant de créer, gérer et suivre les factures électroniques, avec une gestion sécurisée des utilisateurs, des clients et des entreprises.",
+    image:
+      facture,
+    skills: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "Thymeleaf",
+      "PostgreSQL",
+      "UML",
+      "Git",
+      "Jira",
     ],
   },
   {
-    company: "SRB Haute Matsiatra",
-    duration: "3 mois",
-    icon: Building2,
-    projects: [
-      {
-        title: " Application d'enregistrement des correspondances",
-        skills: [
-          "Vue JS",
-          "PHP",
-          "MySQL",
-          "HTML",
-          "CSS",
-          "Git",
-        ],
-      },
-    ],
-  },
-  {
-    company: "Projets Scolaires — DevOps",
-    icon: GraduationCap,
-    projects: [
-      {
-        title: " Pipeline CI/CD",
-        skills: ["GitHub Actions", "Docker", "CI/CD"],
-      },
-      {
-        title: "Projet 9 : Data Warehouse",
-        skills: ["Apache Kylin", "ETL", "OLAP", "SQL"],
-      },
-    ],
-  },
+  title: "Système de gestion de bibliothèque",
+  description:
+    "Application web permettant de digitaliser et simplifier la gestion d'une bibliothèque, avec la gestion des ouvrages, des adhérents, des emprunts, des retours et du suivi des disponibilités.",
+  image:
+    "https://images.unsplash.com/photo-1521587760476-6c12a4b040da",
+  skills: [
+    "React",
+    "Django",
+    "Django REST Framework",
+    "PostgreSQL",
+    "JWT",
+    "Tailwind CSS",
+    "REST API",
+    "Git",
+  ],
+},
+ 
+ 
 ];
 
 const containerVariants = {
@@ -108,6 +102,7 @@ const cardVariants = {
     y: 40,
     scale: 0.95,
   },
+
   visible: {
     opacity: 1,
     y: 0,
@@ -119,81 +114,134 @@ const cardVariants = {
   },
 };
 
-const ExperienceCard = ({ item }) => {
-  const Icon = item.icon;
-
+const ProjectCard = ({ project }) => {
   return (
     <motion.div
       variants={cardVariants}
       whileHover={{
-        y: -10,
-        scale: 1.02,
+        y: -8,
+        scale: 1.015,
       }}
-      transition={{ duration: 0.25 }}
+      transition={{
+        duration: 0.25,
+      }}
+      className="h-full"
     >
-      <Card className="bg-[#0B0B0B] text-white border border-white/10 p-6 transition-all duration-300 hover:border-green-500/40 hover:shadow-[0_15px_40px_rgba(34,197,94,0.15)]">
-        <CardHeader className="p-0 mb-4">
-          <div className="flex justify-between items-center gap-3">
-            <div className="flex items-center gap-2">
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Icon className="size-5 text-green-500" />
-              </motion.div>
+      <Card
+        className="
+          group
+          h-full
+          overflow-hidden
+          border
+          border-white/10
+          bg-neutral-900/70
+          backdrop-blur-xl
+          transition-all
+          duration-300
+          hover:border-green-500/40
+        "
+      >
+        {/* IMAGE */}
+        <div className="relative h-52 w-full overflow-hidden">
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="h-full w-full object-cover"
+            whileHover={{
+              scale: 1.08,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          />
 
-              <CardTitle className="text-white text-base">
-                {item.company}
-              </CardTitle>
-            </div>
+          {/* Overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-neutral-950
+              via-neutral-950/20
+              to-transparent
+            "
+          />
 
-            {item.duration && (
-              <Badge className="bg-green-500/10 text-green-500 border border-green-500/30">
-                {item.duration}
-              </Badge>
-            )}
+          {/* Icon */}
+          <div
+            className="
+              absolute
+              bottom-4
+              left-4
+              flex
+              h-11
+              w-11
+              items-center
+              justify-center
+              rounded-xl
+              border
+              border-white/20
+              bg-black/50
+              backdrop-blur-md
+            "
+          >
+            <Code2 className="h-5 w-5 text-green-400" />
           </div>
+        </div>
+
+        {/* HEADER */}
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg font-semibold text-white">
+            {project.title}
+          </CardTitle>
+
+          {/* PETITE DESCRIPTION */}
+          <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+            {project.description}
+          </p>
         </CardHeader>
 
-        <CardContent className="p-0 flex flex-col gap-5">
-          {item.projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.15,
-              }}
-              className="flex flex-col gap-2"
-            >
-              <span className="font-semibold text-white text-sm">
-                {project.title}
-              </span>
-
-              <div className="flex flex-wrap gap-2">
-                {project.skills.map((skill, i) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: i * 0.05,
-                    }}
-                    whileHover={{
-                      scale: 1.08,
-                    }}
-                  >
-                    <Badge className="bg-white/10 text-neutral-300 hover:bg-green-500/20 hover:text-green-400 transition-colors duration-300">
-                      {skill}
-                    </Badge>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        {/* TECHNOLOGIES */}
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {project.skills.map((skill, index) => (
+              <motion.div
+                key={skill}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: index * 0.05,
+                }}
+                whileHover={{
+                  scale: 1.08,
+                }}
+              >
+                <Badge
+                  className="
+                    bg-white/10
+                    text-neutral-300
+                    transition-colors
+                    duration-300
+                    hover:bg-green-500/20
+                    hover:text-green-400
+                  "
+                >
+                  {skill}
+                </Badge>
+              </motion.div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </motion.div>
@@ -204,41 +252,57 @@ const Experiences = () => {
   return (
     <section
       id="projects"
-      className="border-b border-white/10 p-6 md:p-12 w-full"
+      className="w-full py-20"
     >
-      <div className="flex flex-col gap-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
+
+        {/* TITRE */}
         <motion.div
           className="flex flex-col gap-2"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
           transition={{
             duration: 0.7,
           }}
         >
-          <span className="font-medium text-neutral-400 text-sm">
-            Expérience
+          <span className="text-sm font-medium uppercase tracking-widest text-green-500">
+            Portfolio
           </span>
 
-          <h2 className="font-bold text-white text-2xl md:text-3xl">
-            Expériences Professionnelles
+          <h2 className="text-2xl font-bold text-white md:text-3xl">
+            Mes Projets
           </h2>
+
+          <p className="max-w-2xl text-sm text-neutral-400">
+            Découvrez quelques projets réalisés au cours de mes expériences
+            professionnelles et de ma formation.
+          </p>
         </motion.div>
 
+        {/* PROJECT CARDS */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.2,
+            amount: 0.15,
           }}
         >
-          {experiences.map((item, index) => (
-            <ExperienceCard
-              key={index}
-              item={item}
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
             />
           ))}
         </motion.div>

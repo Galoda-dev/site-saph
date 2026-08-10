@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import img1 from "../../assets/img1.JPG";
+import img1 from "../../assets/saph.png";
 
 const Information = () => {
   const roles = ["Fullstack", "Frontend", "Backend"];

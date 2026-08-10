@@ -7,12 +7,12 @@ const Header = () => {
   const [active, setActive] = useState("Home");
 
   const menus = [
-    { name: "Home", href: "#home", icon: Home },
-    { name: "About", href: "#about", icon: User },
-    { name: "Projects", href: "#projects", icon: Briefcase },
-    { name: "Skills", href: "#skills", icon: Code },
-    { name: "Contact", href: "#contact", icon: Mail },
-  ];
+  { name: "Accueil", href: "#home", icon: Home },
+  { name: "À propos", href: "#about", icon: User },
+  { name: "Projets", href: "#projects", icon: Briefcase },
+  { name: "Compétences", href: "#skills", icon: Code },
+  { name: "Contact", href: "#contact", icon: Mail },
+];
 
   useEffect(() => {
     const sections = menus.map((menu) => document.querySelector(menu.href));
